@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="studentbean" class="p1.Student">
+        <property name="name" value="Uddip Acharjee" ></property>
+        <property name="age" value='22' ></property>
+        <property name="markSheet" ref="ms"></property>
+    </bean>
+    <bean id="result1" class="p1.Result">
+        <property name="courseName" value="ICT"></property>
+        <property name="cgpa" value="3.5"></property>
+        <property name="passed" value="true"></property>
+    </bean>
+    <bean id="result2" class="p1.Result">
+        <property name="courseName" value="English"></property>
+        <property name="cgpa" value="3.8"></property>
+        <property name="passed" value="true"></property>
+    </bean>
+
+    <bean id="teacher1" class="p1.Teacher">
+        <constructor-arg value="Robert"></constructor-arg>
+        <constructor-arg value="44" type="int"></constructor-arg>
+        <constructor-arg>
+           <list>
+               <ref bean="course1"/>
+               <ref bean="course2"/>
+           </list>
+        </constructor-arg>
+    </bean>
+    <!--
+    <bean id="teacher2" class="p1.Teacher">
+        <constructor-arg value="Bob"></constructor-arg>
+        <constructor-arg value="77" type="int"></constructor-arg>
+    </bean>
+    -->
+    <bean id="course1" class="p1.Course">
+        <constructor-arg value="ICT"></constructor-arg>
+        <constructor-arg value="18"></constructor-arg>
+    </bean>
+    <bean id="course2" class="p1.Course">
+        <constructor-arg value="English"></constructor-arg>
+        <constructor-arg value="15"></constructor-arg>
+    </bean>
+    <bean id="ms" class="p1.MarkSheet">
+        <constructor-arg>
+            <map>
+                <entry key-ref="course1" value-ref="result1"></entry>
+                <entry key-ref="course2" value-ref="result2"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+    <bean id="student1" class="p1.Student">
+        <constructor-arg value="Tim"></constructor-arg>
+        <constructor-arg value="26"></constructor-arg>
+    </bean>
+    <bean id="student2" class="p1.Student" parent="student1">
+        <constructor-arg ref="ms"></constructor-arg>
+        <property name="name" value="Wrick"></property>
+    </bean>
+    <bean id="student3" class="p1.Student" parent="student2">
+         <property name="age" value="12"></property>
+    </bean>
+
+    <bean id="class" class="p1.Class" autowire="constructor"></bean>
+    <bean id="director" class="p1.Director" factory-method="getDirector"></bean>
+</beans>
