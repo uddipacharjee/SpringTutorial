@@ -68,4 +68,11 @@
 
     <bean id="class" class="p1.Class" autowire="constructor"></bean>
     <bean id="director" class="p1.Director" factory-method="getDirector"></bean>
+    <bean id="director2" class="p1.Director" ></bean>
+
+    <bean id="notice1" class="p1.Notice" scope="prototype"></bean>
+
+    <bean id="notice2" class="p1.Notice" scope="singleton"></bean>
+
+    <bean id="notice3" class="p1.Notice" init-method="init" destroy-method = "destroy"></bean>
 </beans>
