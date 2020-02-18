@@ -6,6 +6,13 @@ public class Notice {
 
     public void init(){
         System.out.println("Notice Initialzaton callback method Test");
+
+    }
+    public void checkValues(){
+        if(id<1){
+            System.out.println("Invalid ID ");
+            this.id=0;
+        }
     }
     public void destroy(){
         System.out.println("Notice Destuction callback Test");

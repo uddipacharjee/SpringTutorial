@@ -75,4 +75,15 @@
     <bean id="notice2" class="p1.Notice" scope="singleton"></bean>
 
     <bean id="notice3" class="p1.Notice" init-method="init" destroy-method = "destroy"></bean>
+    <bean id="notice4" class="p1.Notice" init-method="checkValues">
+        <property name="message" value="Notice about vacation" ></property>
+        <property name="id" value='-5' ></property>
+    </bean>
+
+    <bean id="noticeBeanPost" class="p1.Notice" init-method="checkValues">
+        <property name="message" value="Notice about vacation" ></property>
+        <property name="id" value='-5' ></property>
+    </bean>
+    <bean id="noticeBeanPostProcessor" class="beanLifeCycleClasses.NoticeBeanPostProcessor"/>
+    <bean id="awareBean" class="beanLifeCycleClasses.AwareBeanImpl"/>
 </beans>

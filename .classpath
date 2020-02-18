@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-3.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-3.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-3.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-3.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/uddip/eclipse-workspace/SpringTutorial/lib/spring-beans-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/uddip/eclipse-workspace/SpringTutorial/lib/spring-context-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/uddip/eclipse-workspace/SpringTutorial/lib/spring-context-support-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/uddip/eclipse-workspace/SpringTutorial/lib/spring-core-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="output" path="out/production/SpringTutorial"/>
+</classpath>

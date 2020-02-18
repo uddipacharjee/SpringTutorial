@@ -1,12 +1,14 @@
 package p1;
 
+import beanLifeCycleClasses.AwareBeanImpl;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-
-import javax.xml.transform.sax.SAXSource;
 
 public class Test {
     public static void main(String[] args) {
@@ -79,9 +81,26 @@ public class Test {
         Notice notice6= (Notice) factory.getBean("notice3");
         notice6.setId(4);
         notice6.setMessage("Notice D");
+        // Destruction callback
         System.out.println(notice6);
         ((ConfigurableBeanFactory) factory).destroySingletons();
 
+        //value check during initialization
+        Notice notice7= (Notice) factory.getBean("notice4");
+        System.out.println(notice7);
+
+        ApplicationContext context1 = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //Aware interface check
+        AwareBeanImpl awareBeanImpl = (AwareBeanImpl) context1.getBean("awareBean");
+
+        ((AbstractApplicationContext) context1).registerShutdownHook();
+
+        // PostProcessor check
+
+
+        Notice noticeBeanPost=(Notice) context1.getBean("noticeBeanPost");
+        ((AbstractApplicationContext) context1).registerShutdownHook();
+        System.out.println(noticeBeanPost);
 
 
     }
